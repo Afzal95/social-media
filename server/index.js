@@ -1,7 +1,9 @@
+import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+dotenv. config({ silent: true });
 
 import postRoutes from "./routes/posts.js";
 
@@ -13,7 +15,7 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 
-const CONNECTION_URL = "mongodb+srv://admin_afzal:testing123@cluster0.6dkxj.mongodb.net/social-media?retryWrites=true&w=majority"
+const CONNECTION_URL = process.env.CONNECTION
 const PORT = process.env.PORT || 8000;
 
 const connect = async()=>{
@@ -24,9 +26,7 @@ const connect = async()=>{
     }
 }
 
-
-
 app.listen(PORT, async()=>{
     await connect();
-    console.log("server is running at 8080");
-})
+    console.log(`server is running at ${PORT}`);
+});
