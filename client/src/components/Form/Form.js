@@ -22,13 +22,13 @@ const Form = () => {
     }
     
     return (
-        <Paper className={classes.paper} noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <form autoComplete="off">
+        <Paper className={classes.paper}>
+            <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Creating Memory</Typography>
-                <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator}onChange={(e)=>setPostdata({...postData, creator: e.target.value})} />
-                <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title}onChange={(e)=>setPostdata({...postData, title: e.target.value})} />
-                <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message}onChange={(e)=>setPostdata({...postData, message: e.target.value})} />
-                <TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.tags}onChange={(e)=>setPostdata({...postData, tags: e.target.value})} />
+                <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e)=>setPostdata({...postData, creator: e.target.value})} />
+                <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e)=>setPostdata({...postData, title: e.target.value})} />
+                <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message} onChange={(e)=>setPostdata({...postData, message: e.target.value})} />
+                <TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.tags} onChange={(e)=>setPostdata({...postData, tags: e.target.value})} />
                 <div className={classes.fileInput}>
                     <FileBase type="file" multiple={false} onDone={({base64})=> setPostdata({...postData, selectedFile:base64})} />
                 </div>
